@@ -223,9 +223,10 @@ var Canvas2dRenderer = (function Canvas2dRendererClosure() {
         var tpl = this._templates[radius].silhouette;
         // value from minimum / value range
         // => [0, 1]
-        var templateAlpha = (value-min)/(max-min);
+        var templateAlpha = Math.max((value-min)/(max-min), .05);
         // this fixes #176: small values are not visible because globalAlpha < .01 cannot be read from imageData
-        edgeCtx.globalAlpha = templateAlpha < .01 ? .01 : templateAlpha;
+        faceCtx.globalAlpha = templateAlpha;
+        edgeCtx.globalAlpha = templateAlpha;
         
         if (!this._absolute || !this._useGradientOpacity) {
           edgeCtx.drawImage(tpl, rectX, rectY);
