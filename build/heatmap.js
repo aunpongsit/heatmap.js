@@ -4,7 +4,7 @@
  * Copyright 2008-2016 Patrick Wied <heatmapjs@patrick-wied.at> - All rights reserved.
  * Dual licensed under MIT and Beerware license 
  *
- * :: 2023-05-16 16:59
+ * :: 2023-05-17 14:45
  */
 ;(function (name, context, factory) {
 
@@ -475,7 +475,6 @@ var Canvas2dRenderer = (function Canvas2dRendererClosure() {
         // => [0, 1]
         var templateAlpha = Math.max((value-min)/(max-min), .05);
         // this fixes #176: small values are not visible because globalAlpha < .01 cannot be read from imageData
-        faceCtx.globalAlpha = templateAlpha;
         edgeCtx.globalAlpha = templateAlpha;
         
         if (!this._absolute || !this._useGradientOpacity) {

@@ -225,7 +225,6 @@ var Canvas2dRenderer = (function Canvas2dRendererClosure() {
         // => [0, 1]
         var templateAlpha = Math.max((value-min)/(max-min), .05);
         // this fixes #176: small values are not visible because globalAlpha < .01 cannot be read from imageData
-        faceCtx.globalAlpha = templateAlpha;
         edgeCtx.globalAlpha = templateAlpha;
         
         if (!this._absolute || !this._useGradientOpacity) {
